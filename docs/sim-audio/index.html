@@ -1,0 +1,38 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tri-Fuzz Sim Clips</title><style>
+:root{color-scheme:light;--bg:#f4f3ef;--card:#fcfcfb;--t:#0b0b0b;--t2:#52514e;--line:#e4e3de}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#121211;--card:#1a1a19;--t:#fff;--t2:#c3c2b7;--line:#2c2c2a}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#121211;--card:#1a1a19;--t:#fff;--t2:#c3c2b7;--line:#2c2c2a}
+body{margin:0;background:var(--bg);color:var(--t);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+main{max-width:980px;margin:0 auto;padding:24px 16px 48px}h1{font-size:22px;margin:0 0 6px}p{color:var(--t2)}
+table{width:100%;border-collapse:collapse;background:var(--card);border-radius:10px;overflow:hidden}td,th{padding:10px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+.d{color:var(--t2);font-size:13px}.num{font-variant-numeric:tabular-nums;white-space:nowrap}audio{width:260px;max-width:100%}audio.small{height:28px;width:200px}
+.wrap{overflow-x:auto}</style></head><body><main>
+<h1>Tri-Fuzz v0.3: simulated clips</h1>
+<p>ngspice model of the whole signal path (behavioural TL07x-like op-amps, 1N4148 / red LED diode models) fed with a synthetic guitar (Karplus-Strong). The main players go through a rough 1×12 cab filter; "DI" is the raw pedal output. All clips are loudness-matched so you compare tone; the last column is the real output level relative to clip 02. Caveats: the synthetic guitar is darker than a real pickup (so HIGH is under-represented), and noise is not simulated.</p>
+<div class="wrap"><table><thead><tr><th>Clip</th><th>Listen (cab / DI)</th><th>Level vs 02</th></tr></thead><tbody><tr><td><b>00</b> clean DI<br><span class="d">Clean guitar (the synthetic input): a low E, then an open E chord.</span></td>
+<td><audio controls preload="none" src="00_clean_DI.wav"></audio><br><span class="d">DI: </span><audio controls preload="none" src="di/00_clean_DI.wav" class="small"></audio></td>
+<td class="num">-11.0 dB</td></tr><tr><td><b>01</b> single band LED<br><span class="d">Reference: ONE full-range LED clipper at the same drive (an ordinary fuzz). Compare the chord with 02.</span></td>
+<td><audio controls preload="none" src="01_single_band_LED.wav"></audio><br><span class="d">DI: </span><audio controls preload="none" src="di/01_single_band_LED.wav" class="small"></audio></td>
+<td class="num">-3.2 dB</td></tr><tr><td><b>02</b> trifuzz sym<br><span class="d">Tri-Fuzz v0.3: all bands DRIVE ~3 o&#x27;clock, CLIP up (symmetric), VOL 70 %. MID inverted.</span></td>
+<td><audio controls preload="none" src="02_trifuzz_sym.wav"></audio><br><span class="d">DI: </span><audio controls preload="none" src="di/02_trifuzz_sym.wav" class="small"></audio></td>
+<td class="num">+0.0 dB</td></tr><tr><td><b>03</b> trifuzz mid not inverted<br><span class="d">Same as 02 but MID in the same polarity as LOW/HIGH (v0.1 style): crossover cancellation.</span></td>
+<td><audio controls preload="none" src="03_trifuzz_mid_not_inverted.wav"></audio><br><span class="d">DI: </span><audio controls preload="none" src="di/03_trifuzz_mid_not_inverted.wav" class="small"></audio></td>
+<td class="num">-3.5 dB</td></tr><tr><td><b>04</b> trifuzz asym<br><span class="d">Same as 02, CLIP down (asymmetric, even-order) on all bands.</span></td>
+<td><audio controls preload="none" src="04_trifuzz_asym.wav"></audio><br><span class="d">DI: </span><audio controls preload="none" src="di/04_trifuzz_asym.wav" class="small"></audio></td>
+<td class="num">-2.2 dB</td></tr><tr><td><b>05</b> trifuzz rails<br><span class="d">Same as 02, CLIP centre (op-amp rail clipping) on all bands.</span></td>
+<td><audio controls preload="none" src="05_trifuzz_rails.wav"></audio><br><span class="d">DI: </span><audio controls preload="none" src="di/05_trifuzz_rails.wav" class="small"></audio></td>
+<td class="num">+3.4 dB</td></tr><tr><td><b>06</b> clean bass<br><span class="d">LOW DRIVE at minimum (x3, LEDs barely clip), MID/HIGH at 3 o&#x27;clock: the &quot;clean bass&quot; voicing.</span></td>
+<td><audio controls preload="none" src="06_clean_bass.wav"></audio><br><span class="d">DI: </span><audio controls preload="none" src="di/06_clean_bass.wav" class="small"></audio></td>
+<td class="num">-5.1 dB</td></tr><tr><td><b>07</b> max drive<br><span class="d">All DRIVE at max (x155), symmetric. (Noise is not simulated.)</span></td>
+<td><audio controls preload="none" src="07_max_drive.wav"></audio><br><span class="d">DI: </span><audio controls preload="none" src="di/07_max_drive.wav" class="small"></audio></td>
+<td class="num">+1.5 dB</td></tr><tr><td><b>08</b> low solo<br><span class="d">LOW band alone (LED clip, 1.5 kHz post-filter).</span></td>
+<td><audio controls preload="none" src="08_low_solo.wav"></audio><br><span class="d">DI: </span><audio controls preload="none" src="di/08_low_solo.wav" class="small"></audio></td>
+<td class="num">-3.1 dB</td></tr><tr><td><b>09</b> mid solo<br><span class="d">MID band alone (2x Si clip).</span></td>
+<td><audio controls preload="none" src="09_mid_solo.wav"></audio><br><span class="d">DI: </span><audio controls preload="none" src="di/09_mid_solo.wav" class="small"></audio></td>
+<td class="num">-7.0 dB</td></tr><tr><td><b>10</b> high solo<br><span class="d">HIGH band alone (Si clip). Very quiet in the raw output: see notes.</span></td>
+<td><audio controls preload="none" src="10_high_solo.wav"></audio><br><span class="d">DI: </span><audio controls preload="none" src="di/10_high_solo.wav" class="small"></audio></td>
+<td class="num">-15.3 dB</td></tr><tr><td><b>11</b> low drive noon<br><span class="d">All DRIVE at noon (A-taper ~15 %, about x26).</span></td>
+<td><audio controls preload="none" src="11_low_drive_noon.wav"></audio><br><span class="d">DI: </span><audio controls preload="none" src="di/11_low_drive_noon.wav" class="small"></audio></td>
+<td class="num">-3.3 dB</td></tr></tbody></table></div>
+</main></body></html>

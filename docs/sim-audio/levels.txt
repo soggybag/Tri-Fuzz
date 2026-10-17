@@ -1,0 +1,12 @@
+00_clean_DI	-30.7 dBV rms	0.250 V peak
+05_trifuzz_rails	-16.3 dBV rms	0.534 V peak
+04_trifuzz_asym	-21.9 dBV rms	0.213 V peak
+02_trifuzz_sym	-19.7 dBV rms	0.232 V peak
+03_trifuzz_mid_not_inverted	-23.2 dBV rms	0.211 V peak
+07_max_drive	-18.2 dBV rms	0.240 V peak
+09_mid_solo	-26.7 dBV rms	0.083 V peak
+06_clean_bass	-24.8 dBV rms	0.126 V peak
+08_low_solo	-22.8 dBV rms	0.133 V peak
+10_high_solo	-35.0 dBV rms	0.035 V peak
+11_low_drive_noon	-23.0 dBV rms	0.217 V peak
+01_single_band_LED	-22.3 dBV rms	0.144 V peak
